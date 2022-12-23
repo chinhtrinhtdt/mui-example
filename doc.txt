@@ -1,0 +1,109 @@
+
+-----------------------------------------------------
+#22/12
+
+useRef
+
+useContext
+
+----------
+
+useRef
+	return an object with a current property
+	will give you the same ref object on every render
+	const refObject = useRef(initialValue)
+	refObject.current = initialValue
+
+	+ managin focus, text selection, or media playback 
+	+ integrating with third-party DOM libraries
+	+ triggering  imperative animations
+	+ debounce (khi search thì sau khoảng thời gian delay mới gửi api)
+
+useContext
+	Context is a way to manage state globally 
+
+	//file parent
+	const MyContext = createContext(initialValue)
+	<MyContext.Provider value = {}>
+	
+	</MyContext>
+
+	//file child
+	const context = useContext(MyContext)
+
+	useContext is a hook, it is used to share data. save cache , refesh lose data
+	redux is a state management library, it is used to manage data and state
+	cache store
+	
+blackLit : password,..
+whiteList : accessToken,...
+
+useCallback: return a memoized function, tranh render lai function
+useMemo return a memoized value, tranh render lai component
+
+
+
+
+-----------------------------------------------------
+#21/12
+
+life cycle - react 
+
+Mounting
+
+Updating
+
+Unmounting
+
+----------
+Mounting
+	constructor()
+	componentWillMount()
+	render()
+	componentDidMount()
+Updating
+	static getDerivedStateFromProps()
+	shouldComponentUpdate()
+	render()
+	getSnapshotBeforeUpdate()
+	componentDidUpdate()
+Unmounting
+	componentWillUnmount()
+
+---------
++ componentWillMount: thực thi trước khi hiển thị 
++ componentDidMount: thực thi sau lần render đầu tiên 
++ componentWillReceiveProps
++ shouldComponentUpdate: boolean, khi component bị thay đổi
++ componentWillUpdate: gọi trước khi render, kiểm tra xem state có thay đổi không hay giống với state trước
++ componentDidUpdate: gọi sau khi kết xuất 
++ componetWillUnmount: gọi khi component bị gỡ khỏi DOM
+
+useState 
+
+useEffect
+
+React performs the cleanup when the component unmounts,the previous render before running the effects next time.
+
+---------
+
+clone stackoverflow
+
+- post comment vote tag 
+
+- build code base
++ page layout component 
+
+
+--------
+untils: hàm dùng chung 
+api: chứa đường dẫn api 
+assets: tài nguyên như ảnh,..
+common: các component dùng chung trong prj như, phân trang, button,
+config: cấu hình ...
+constants: định nghĩa hàm số 
+hook: tự định nghĩa  1 hook mới 
+mock: fake api 
+pages: là các trang trong trang web 
+layouts: là tạo 1 bố cục, layout sẽ nằm trong pages
+services:  
